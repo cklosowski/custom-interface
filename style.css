@@ -1,0 +1,108 @@
+/*
+ Theme Name:   Interface Child Theme
+ Theme URI:    http://filament-studios.com
+ Description:  Child theme for Interface
+ Author:       Chris Klosowski
+ Author URI:   http://kungfugrep.com
+ Template:     interface
+ Version:      1.0.0
+ Text Domain:  interface
+*/
+
+@import url("../interface/style.css");
+.archive-avatar {
+	float: left;
+}
+.review-avatar {
+	text-align: center;
+}
+.archive-avatar img, .review-avatar img {
+    margin-top: 1em;
+    margin-right: 1em;
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+}
+
+.host-widet-wraper {
+	text-align: center;
+}
+.host-widet-wraper .entry-header {
+	margin-top: 10px;
+}
+
+.widget-host-type {
+	margin-bottom: 3px;
+}
+
+.type-hosts {
+	margin-bottom: 25px;
+}
+
+.xpost-badge {
+	float: right;
+	color: #CCC;
+}
+
+.widget-review-button input {
+	display: inline;
+}
+
+.rating-input, .ratings {
+	color: #63c6ae;
+}
+
+.star-ratings-wrapper {
+	margin-bottom: 10px;
+	font-size: 16px;
+	line-height: 24px;
+
+}
+
+.rating-loop-wrapper {
+	width: 50%;
+	display: inline-block;
+}
+.type-groups .entry-title img {
+	vertical-align: middle;
+	padding-bottom: 3px;
+}
+
+.alerts {
+	font-size: 14px;
+	position: relative;
+	padding-left: 10px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.notice {
+	background: #fffbcc;
+	border: 1px solid #e0a61b;
+}
+
+.confirm {
+	background: #ecfbda;
+	border: 1px solid #88c236;
+}
+
+.error {
+	background: #ffdcdc;
+	border: 1px solid #d00000;
+}
+
+.host-review-item {
+	padding-bottom: 10px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #EEE;
+}
+
+.widget-ratings-wrapper {
+	margin-top: 10px;
+}

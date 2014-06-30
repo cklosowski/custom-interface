@@ -1,0 +1,154 @@
+<?php
+/**
+ * This file displays page with right sidebar.
+ *
+ * @package Theme Horse
+ * @subpackage Interface
+ * @since Interface 1.0
+ */
+?>
+<?php
+   /**
+    * interface_before_primary
+    */
+   do_action( 'interface_before_primary' );
+?>
+<div id="primary" class="no-margin-left">
+  <?php
+      /**
+       * interface_before_loop_content
+     *
+     * HOOKED_FUNCTION_NAME PRIORITY
+     *
+     * interface_loop_before 10
+       */
+      do_action( 'interface_before_loop_content' );
+
+      /**
+       * interface_loop_content
+     *
+     * HOOKED_FUNCTION_NAME PRIORITY
+     *
+     * interface_theloop 10
+       */
+  global $post, $wp_query;
+    if ( ! isset( $wp_query->query_vars['new'] ) && ! isset( $wp_query->query_vars['submit'] ) && ! isset( $wp_query->query_vars['edit'] ) ) {
+
+    if( have_posts() ) {
+      while( have_posts() ) {
+        the_post();
+        do_action( 'interface_before_post' );
+        ?>
+        <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          <article>
+            <!-- entry content clearfix -->
+            <?php
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            $args = array(
+                'post_type'      => 'reviews',
+                'post_status'    => 'publish',
+                'post_parent'    => $post->ID,
+                'posts_per_page' => -1
+                );
+
+            $reviewsQuery = new WP_Query( $args );
+            unset($args);
+
+            if ( $reviewsQuery->have_posts() ) :
+              while ( $reviewsQuery->have_posts() ) :
+                $reviewsQuery->the_post();
+                $xpost = get_post_meta( get_the_id(), '_review_xpost', true );
+                ?>
+                  <header class="entry-header host-review-item">
+                    <?php if ( $xpost === 'yes' ) : ?>
+                      <div class="xpost-badge">Cross-Post Review</div>
+                    <?php endif; ?>
+                    <!-- .entry-meta -->
+                    <h1 class="entry-title">
+                      <?php the_title();?>
+                    </h1>
+                    <!-- .entry-title -->
+                    <div class="entry-meta clearfix">
+                      <div class="date"><a href="#" title="<?php echo esc_attr( get_the_time() ); ?>">
+                        <?php the_time( get_option( 'date_format' ) ); ?>
+                        </a></div>
+                      <div class="by-author"><a href="#">
+                        Anonymous
+                      </a></div>
+                    </div>
+                    <div class="star-ratings-wrapper">
+                      <?php $star_ratings = get_post_meta( get_the_id(), '_review_star_ratings', true ); ?>
+                      <?php
+                      foreach ( $star_ratings as $key => $rating ) {
+                        ?><div class="rating-loop-wrapper"><?php
+                        $rating_title = ucfirst( str_replace( '_', ' ', $key ) );
+                        echo $rating_title . ': ' . rah_generate_stars( $rating );
+                        ?></div><?php
+                      }
+                      ?>
+                    </div>
+                    <div class="entry-content">
+                      <h6>Additional Comments</h6>
+                      <?php the_content(); ?>
+                    </div>
+                    <!-- .entry-meta -->
+                  </header>
+                <?php
+              endwhile;
+            else:
+              ?><h5>This host has no reviews yet!</><?php
+            endif;
+            ?>
+            <nav>
+                <?php previous_posts_link( 'Newer posts &raquo;' ); ?>
+                <?php next_posts_link('Older &raquo;') ?>
+            </nav>
+            <?php
+            wp_reset_query();
+            wp_reset_postdata();
+            ?>
+          </article>
+        </section>
+        <!-- .post -->
+        <?php
+              do_action( 'interface_after_post' );
+
+            }
+          }
+          else {
+            ?>
+        <h1 class="entry-title">
+          <?php _e( 'No Posts Found.', 'interface' ); ?>
+        </h1>
+        <?php
+           }
+      } elseif( isset( $wp_query->query_vars['new'] ) ) {
+        echo do_shortcode( '[host_review_form]' );
+      } elseif( isset( $wp_query->query_vars['submit'] ) ) {
+        echo do_shortcode( '[host_review_submit]' );
+      } elseif( isset( $wp_query->query_vars['edit'] ) ) {
+        echo do_shortcode( '[host_review_edit_form]' );
+      }
+      /**
+       * interface_after_loop_content
+     *
+     * HOOKED_FUNCTION_NAME PRIORITY
+     *
+     * interface_next_previous 5
+     * interface_loop_after 10
+       */
+      do_action( 'interface_after_loop_content' );
+   ?>
+</div>
+<!-- #primary -->
+
+<?php
+   /**
+    * interface_after_primary
+    */
+   do_action( 'interface_after_primary' );
+?>
+<div id="secondary">
+  <?php get_sidebar( 'host' ); ?>
+</div>
+<!-- #secondary -->
