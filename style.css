@@ -77,6 +77,10 @@
 	float: right;
 }
 
+.type-groups {
+	margin-bottom: 25px;
+}
+
 .type-groups .entry-title img {
 	vertical-align: middle;
 	padding-bottom: 3px;
