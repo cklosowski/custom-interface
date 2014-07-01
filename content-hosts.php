@@ -75,11 +75,12 @@
               <div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
                 Joined On: <?php the_time( get_option( 'date_format' ) ); ?>
                 </a></div>
-              <?php if ( isset( $group_name ) ) : ?>
+              <?php if ( !empty( $parent ) ) : ?>
               <div class="group"><img src="<?php echo $group_image; ?>" />
                 <a href="<?php echo $group_url; ?>" title-"<?php echo esc_attr( $group_name ); ?>">
                 <?php echo $group_name; ?>
               </a></div>
+              <?php unset( $parent ); ?>
             <?php endif; ?>
               <br />
             <div class="widget-ratings-wrapper">
