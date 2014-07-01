@@ -37,7 +37,7 @@
     while( have_posts() ) {
       the_post();
       $group_image = get_post_meta( $post->ID, '_rah_group_fb_icon', true );
-      $hosts = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'hosts', 'posts_per_page' => -1 ), ARRAY_A );
+      $hosts = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'hosts', 'posts_per_page' => -1, 'post_status' => 'publish' ), ARRAY_A );
       $host_count = is_array( $hosts ) ? count( $hosts ) : 0;
       do_action( 'interface_before_post' );
       ?>
