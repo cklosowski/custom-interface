@@ -10,13 +10,7 @@
 */
 
 @import url("../interface/style.css");
-.archive-avatar {
-	float: left;
-}
-.review-avatar {
-	text-align: center;
-}
-.archive-avatar img, .review-avatar img {
+.avatar {
     margin-top: 1em;
     margin-right: 1em;
     position: relative;
@@ -28,6 +22,18 @@
     -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
     box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+}
+
+.archive-avatar {
+	float: left;
+}
+.review-avatar {
+	text-align: center;
+}
+.user-avatar {
+	margin-bottom: 10px;
+	float: right;
+	margin-top: -40px;
 }
 
 .host-widet-wraper {
@@ -124,6 +130,23 @@
 }
 .rah-form label {
 	font-size: 15px;
+}
+
+.user-widet-wraper {
+	color: #fff;
+	margin-bottom: 50px;
+	border: 1px solid #eee;
+	padding: 10px;
+	background-color: #63c6ae;
+}
+
+.user-widet-wraper a:link, .user-widet-wraper a:visited, .user-widet-wraper a:hover, .user-widet-wraper a:active{
+	color: #fff;
+}
+
+.user-widet-wraper ul li {
+	list-style-type: disc;
+	margin-left: 25px;
 }
 
 
