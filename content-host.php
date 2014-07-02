@@ -79,13 +79,15 @@
                     <div class="star-ratings-wrapper">
                       <?php $star_ratings = get_post_meta( get_the_id(), '_review_star_ratings', true ); ?>
                       <?php
-                      foreach ( $star_ratings as $key => $rating ) {
-                        ?><div class="rating-loop-wrapper"><?php
-                        $rating_title = ucwords( str_replace( array( '_', 'rating', 'and' ), array( ' ', '', '&' ), $key ) );
-                        ?>
-                        <div class="review-shortname"><?php echo trim( $rating_title ); ?>:</div>
-                        <div class="review-stars"><?php echo rah_generate_stars( $rating ); ?></div>
-                        </div><?php
+                      if ( count( $star_ratings ) > 0 ) {
+                        foreach ( $star_ratings as $key => $rating ) {
+                          ?><div class="rating-loop-wrapper"><?php
+                          $rating_title = ucwords( str_replace( array( '_', 'rating', 'and' ), array( ' ', '', '&' ), $key ) );
+                          ?>
+                          <div class="review-shortname"><?php echo trim( $rating_title ); ?>:</div>
+                          <div class="review-stars"><?php echo rah_generate_stars( $rating ); ?></div>
+                          </div><?php
+                        }
                       }
                       ?>
                     </div>
