@@ -40,29 +40,31 @@
       $group_image = get_post_meta( $post->ID, '_rah_group_fb_icon', true );
       $hosts = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'hosts', 'posts_per_page' => -1, 'post_status' => 'publish' ), ARRAY_A );
       $host_count = is_array( $hosts ) ? count( $hosts ) : 0;
+      $group_stats = rah_get_group_rating_stats( $post->ID );
       do_action( 'interface_before_post' );
       ?>
       <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <article>
           <header class="entry-header">
             <?php if(get_the_time( get_option( 'date_format' ) )) { ?>
-            <div class="entry-meta"> <span class="cat-links">
-              <?php the_category(', '); ?>
-              </span><!-- .cat-links -->
-            </div>
-            <!-- .entry-meta -->
 
             <h1 class="entry-title">
               <img src="<?php echo $group_image; ?>" /> &nbsp;<?php the_title();?>
+              <?php if( $group_stats['group_rating'] > 0 ) :?>
+                <div class="group-title-ratings"><?php echo rah_generate_stars( $group_stats['group_rating'] ); ?></div>
+              <?php endif; ?>
             </h1>
             <!-- .entry-title -->
             <div class="entry-meta clearfix">
-              <div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
+              <div class="date"><span>
                 Added On: <?php the_time( get_option( 'date_format' ) ); ?>
-                </a></div>
+                </span></div>
               <div class="by-author"><a href="<?php the_permalink(); ?>">
                 <?php printf( _n( '%d Host', '%d Hosts', $host_count, 'interface' ), $host_count ); ?>
               </a></div>
+              <?php if( $group_stats['group_reviews'] > 0 ) :?>
+              <div class="comments"><span>Host Reviews: <?php echo $group_stats['group_reviews']; ?></span></div>
+              <?php endif; ?>
             </div>
             <!-- .entry-meta -->
           </header>

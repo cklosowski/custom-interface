@@ -165,6 +165,37 @@
 	margin-left: 25px;
 }
 
+.entry-meta .by-author span:before,
+.entry-meta .date span:before,
+.entry-meta .comments span:before {
+	line-height: 22px;
+	margin-right: 3px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+	font-family: 'Genericons';
+	vertical-align: top;
+}
+
+.entry-meta .by-author span:before {
+	content: '\f304';
+}
+.entry-meta .date span:before {
+	content: '\f303';
+}
+.entry-meta .comments span:before {
+	content: '\f108';
+}
+
+.group-title-ratings {
+	display: inline-block;
+	vertical-align: middle;
+	padding-top: 4px;
+}
+
 
 @media (max-width: 768px) {
 	.rating-loop-wrapper {
