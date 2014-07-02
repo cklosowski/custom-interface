@@ -92,6 +92,10 @@
 	padding-bottom: 3px;
 }
 
+.type-groups .archive-avatar {
+	margin-left: 5px;
+}
+
 .alerts {
 	font-size: 14px;
 	position: relative;
