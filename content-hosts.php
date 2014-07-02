@@ -83,7 +83,7 @@
               <?php unset( $parent ); ?>
             <?php endif; ?>
               <br />
-            <div class="widget-ratings-wrapper">
+            <div class="hosts-ratings-wrapper">
               <?php echo rah_generate_stars( get_post_meta( $post->ID, '_host_rating', true ) ); ?><br />
               <?php printf( _n( '%d Review', '%d Reviews', $review_count, 'interface' ), $review_count ); ?>
             </div>

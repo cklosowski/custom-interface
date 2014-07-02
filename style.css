@@ -125,8 +125,12 @@
 	border-bottom: 1px solid #EEE;
 }
 
-.widget-ratings-wrapper {
+.widget-ratings-wrapper, .hosts-ratings-wrapper {
 	margin-top: 10px;
+}
+
+.hosts-ratings-wrapper {
+	margin-left: 110px;
 }
 
 .rah-form h3 {
