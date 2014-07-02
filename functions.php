@@ -1,5 +1,9 @@
 <?php
-remove_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
+add_action( 'init', 'rah_remove_actions', 99 );
+function rah_remove_actions() {
+	remove_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
+}
+
 add_action( 'interface_after_loop_content', 'rah_interface_next_previous', 5 );
 
 function rah_interface_next_previous() {
@@ -15,10 +19,10 @@ function rah_interface_next_previous() {
 			if ( $wp_query->max_num_pages > 1 ) :
 			?>
 <ul class="default-wp-page clearfix">
-  <li class="next">
+  <li class="previous">
     <?php next_posts_link( __( '&laquo; Next', 'interface' ) ); ?>
   </li>
-  <li class="previous">
+  <li class="next">
     <?php previous_posts_link( __( 'Previous &raquo;', 'interface' ) ); ?>
   </li>
 </ul>
