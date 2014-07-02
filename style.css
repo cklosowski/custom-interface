@@ -38,7 +38,12 @@
 
 .host-widet-wraper {
 	text-align: center;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 25px;
 }
+
 .host-widet-wraper .entry-header {
 	margin-top: 10px;
 }
@@ -146,6 +151,9 @@
 	border: 1px solid #eee;
 	padding: 10px;
 	background-color: #63c6ae;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .user-widet-wraper a:link, .user-widet-wraper a:visited, .user-widet-wraper a:hover, .user-widet-wraper a:active{
