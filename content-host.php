@@ -79,7 +79,7 @@
                     <div class="star-ratings-wrapper">
                       <?php $star_ratings = get_post_meta( get_the_id(), '_review_star_ratings', true ); ?>
                       <?php
-                      if ( count( $star_ratings ) > 0 ) {
+                      if ( is_array( $star_ratings ) && count( $star_ratings ) > 0 ) {
                         foreach ( $star_ratings as $key => $rating ) {
                           ?><div class="rating-loop-wrapper"><?php
                           $rating_title = ucwords( str_replace( array( '_', 'rating', 'and' ), array( ' ', '', '&' ), $key ) );
