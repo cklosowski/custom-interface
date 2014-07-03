@@ -100,7 +100,7 @@
                 <?php
               endwhile;
             else:
-              ?><h5>This host has no reviews yet!</><?php
+              ?><h5>This host has no reviews yet. <a href="<?php echo the_permalink(); ?>new">Be the first!</a></h5><?php
             endif;
             ?>
             <nav>
