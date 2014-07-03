@@ -35,11 +35,11 @@ function rah_interface_next_previous() {
 			if ( $wp_query->max_num_pages > 1 ) :
 			?>
 <ul class="default-wp-page clearfix">
-  <li class="previous">
-    <?php next_posts_link( __( '&laquo; Next', 'interface' ) ); ?>
-  </li>
   <li class="next">
-    <?php previous_posts_link( __( 'Previous &raquo;', 'interface' ) ); ?>
+    <?php next_posts_link( __( 'Next &raquo;', 'interface' ) ); ?>
+  </li>
+  <li class="previous">
+    <?php previous_posts_link( __( '&laquo; Previous', 'interface' ) ); ?>
   </li>
 </ul>
 <?php

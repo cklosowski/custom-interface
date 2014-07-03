@@ -196,6 +196,11 @@
 	padding-top: 4px;
 }
 
+#wp_page_numbers, .wp-pagenavi, #content ul.default-wp-page, .pagination {
+	font-size: 16px;
+	border-bottom: none;
+	border-top: none;
+}
 
 @media (max-width: 768px) {
 	.rating-loop-wrapper {
