@@ -55,7 +55,7 @@
             <?php } ?>
             <!-- .entry-meta -->
             <h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
-              <img src="<?php echo $group_image; ?>" /> &nbsp;<?php the_title();?>
+              <?php if( $group_image ) :?><img src="<?php echo $group_image; ?>" /> &nbsp;<?php endif; ?><?php the_title();?>
               </a>
               <?php if( $group_stats['group_rating'] > 0 ) :?>
                 <div class="group-title-ratings"><?php echo rah_generate_stars( $group_stats['group_rating'] ); ?></div>

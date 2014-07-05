@@ -49,7 +49,7 @@
             <?php if(get_the_time( get_option( 'date_format' ) )) { ?>
 
             <h1 class="entry-title">
-              <img src="<?php echo $group_image; ?>" /> &nbsp;<?php the_title();?>
+              <?php if( $group_image ) :?><img src="<?php echo $group_image; ?>" /> &nbsp;<?php endif; ?><?php the_title();?>
               <?php if( $group_stats['group_rating'] > 0 ) :?>
                 <div class="group-title-ratings"><?php echo rah_generate_stars( $group_stats['group_rating'] ); ?></div>
               <?php endif; ?>
