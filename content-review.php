@@ -14,10 +14,10 @@
    do_action( 'interface_before_primary' );
    global $post;
 ?>
+<div id="primary" class="no-margin-left">
 <div class="backtohost-wrapper">
   <a class="readmore backtohost" href="<?php echo get_permalink( $post->post_parent ); ?>">Back to Host</a>
 </div>
-<div id="primary" class="no-margin-left">
   <?php
       /**
        * interface_before_loop_content
