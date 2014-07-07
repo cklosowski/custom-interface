@@ -79,3 +79,44 @@ function interface_header_title() {
 	return $interface_header_title;
 
 }
+
+function rah_interface_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+		// Proceed with normal comments.
+		global $post;
+	?>
+<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+  <article id="comment-<?php comment_ID(); ?>" class="comment">
+    <header class="comment-meta comment-author vcard">
+      <?php
+      				$host_id = (int)get_host_id_from_user_id( $comment->user_id );
+					echo '<a href="' . get_permalink( $post->post_parent ) . '">' . get_avatar( $comment, 75 ) . '</a>';
+					printf( '<cite class="fn">%1$s %2$s</cite>',
+						'<a href="' . get_permalink( $post->post_parent ) . '">' . get_the_title( $post->post_parent ) . '</a>',
+						// If current post author is also comment author, make it known visually.
+						( $host_id === $post->post_parent ) ? '<span> ' . __( 'Host', 'interface' ) . '</span>' : ''
+					);
+					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+						esc_url( get_comment_link( $comment->comment_ID ) ),
+						get_comment_time( 'c' ),
+						/* translators: 1: date, 2: time */
+						sprintf( __( '%1$s at %2$s', 'interface' ), get_comment_date(), get_comment_time() )
+					);
+				?>
+    </header>
+    <!-- .comment-meta -->
+
+    <?php if ( '0' == $comment->comment_approved ) : ?>
+    <p class="comment-awaiting-moderation">
+      <?php _e( 'Your comment is awaiting moderation.', 'interface' ); ?>
+    </p>
+    <?php endif; ?>
+    <section class="comment-content comment">
+      <?php comment_text(); ?>
+      <?php edit_comment_link( __( 'Edit', 'interface' ), '<p class="edit-link">', '</p>' ); ?>
+    </section>
+    <!-- .comment-content -->
+  </article>
+  <!-- #comment-## -->
+  <?php
+}

@@ -61,11 +61,15 @@
                 ?>
                   <header class="entry-header host-review-item">
                     <?php if ( $xpost === 'yes' ) : ?>
-                      <div class="xpost-badge">Cross-Post Review</div>
+                      <div class="xpost-badge"><span class="dashicons dashicons-randomize"></span>&nbsp;Cross-Post Review</div><br />
+                    <?php endif; ?>
+                    <?php $comment_counts = get_comment_count( get_the_id() ); ?>
+                    <?php if ( $comment_counts['total_comments'] > 0 ) : ?>
+                      <div class="replied-badge"><span class="dashicons dashicons-testimonial"></span>&nbsp;Host Has Replied</div>
                     <?php endif; ?>
                     <!-- .entry-meta -->
                     <h1 class="entry-title">
-                      <?php the_title();?>
+                      <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
                     </h1>
                     <!-- .entry-title -->
                     <div class="entry-meta clearfix">

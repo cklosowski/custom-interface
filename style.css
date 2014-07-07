@@ -56,7 +56,7 @@
 	margin-bottom: 25px;
 }
 
-.xpost-badge {
+.xpost-badge, .replied-badge {
 	float: right;
 	color: #CCC;
 }
@@ -200,6 +200,20 @@
 	font-size: 16px;
 	border-bottom: none;
 	border-top: none;
+}
+
+.comments-area article header {
+	height: 100px;
+	padding-left: 5px;
+	margin-bottom: 10px;
+}
+
+.backtohost-wrapper {
+	display: inline-block;
+}
+
+.backtohost {
+	float: left;
 }
 
 @media (max-width: 768px) {
