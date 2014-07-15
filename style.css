@@ -219,7 +219,7 @@
 
 #primary .host-widet-wraper {
 	padding: 5px 10px 5px 25px;
-	min-height: 150px;
+	min-height: 225px;
 }
 
 #primary .host-widet-wraper .review-avatar {
@@ -233,6 +233,10 @@
 #primary .host-widet-wraper .entry-header {
 	width: 65%;
 	float: right;
+}
+
+#primary .host-widet-wraper .widget-review-button {
+	padding: 5px;
 }
 
 @media (max-width: 768px) {
