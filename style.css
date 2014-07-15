@@ -10,6 +10,7 @@
 */
 
 @import url("../interface/style.css");
+
 .avatar {
     margin-top: 1em;
     margin-right: 1em;
@@ -214,6 +215,24 @@
 
 .backtohost {
 	float: left;
+}
+
+#primary .host-widet-wraper {
+	padding: 5px 10px 5px 25px;
+	min-height: 150px;
+}
+
+#primary .host-widet-wraper .review-avatar {
+	float: left;
+}
+
+#primary .host-widet-wraper .avatar {
+	width: 64px;
+}
+
+#primary .host-widet-wraper .entry-header {
+	width: 65%;
+	float: right;
 }
 
 @media (max-width: 768px) {
