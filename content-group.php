@@ -74,11 +74,19 @@
             <?php the_content(); ?>
             <h5>Hosts</h5>
             <?php foreach ( $hosts as $host ) : ?>
+            <div>
               <a href="<?php echo get_permalink( $host['ID'] ); ?>">
                 <div class="archive-avatar">
-                <?php echo get_avatar( get_user_id_from_host_id( $host['ID'] ) ); ?>
+                  <?php echo get_avatar( get_user_id_from_host_id( $host['ID'] ) ); ?>
+                  <p>
+                    <div><?php echo $host['post_title']; ?></div>
+                    <div class="star-ratings-wrapper">
+                      <?php echo rah_generate_stars( get_post_meta( $host['ID'], '_host_rating', true ) ); ?>
+                    </div>
+                  </p>
                 </div>
               </a>
+            </div>
             <?php endforeach; ?>
           </div>
           <?php if(get_the_time( get_option( 'date_format' ) )) { ?>
