@@ -1,7 +1,7 @@
 <?php
 
 function rah_enqueue_scripts() {
-	wp_dequeue_style( 'google_fonts' );
+	wp_deregister_style( 'google_fonts' );
 	$protocol = is_ssl() ? 'https' : 'http';
 	wp_register_style( 'google_fonts', $protocol . '://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' );
 	wp_enqueue_style( 'google_fonts' );
