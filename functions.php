@@ -1,4 +1,13 @@
 <?php
+
+function rah_enqueue_scripts() {
+	wp_dequeue_style( 'google_fonts' );
+	$protocol = is_ssl() ? 'https' : 'http';
+	wp_register_style( 'google_fonts', $protocol . '://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' );
+	wp_enqueue_style( 'google_fonts' );
+}
+add_action( 'wp_enqueue_scripts', 'rah_enqueue_scripts', 99 );
+
 add_action( 'init', 'rah_remove_actions', 99 );
 function rah_remove_actions() {
 	remove_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
