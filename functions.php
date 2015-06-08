@@ -26,7 +26,7 @@ function rah_add_ga() {
   ga('send', 'pageview');
 
 </script>
-	<?
+	<?php
 }
 
 add_action( 'interface_after_loop_content', 'rah_interface_next_previous', 5 );
