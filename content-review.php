@@ -76,7 +76,7 @@
                     </div>
                     <div class="entry-content">
                       <h6>Additional Comments</h6>
-                      <?php the_content(); ?>
+                      <?php echo $post->post_content; ?>
                     </div>
                     <!-- .entry-meta -->
                   </header>
