@@ -8,12 +8,12 @@ function rah_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'rah_enqueue_scripts', 99 );
 
-add_action( 'init', 'rah_remove_actions', 99 );
 function rah_remove_actions() {
+	remove_action( 'interface_footer', 'interface_footer_info', 30 );
 	remove_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
 }
+add_action( 'init', 'rah_remove_actions', 99 );
 
-add_action( 'interface_before', 'rah_add_ga', 1 );
 function rah_add_ga() {
 	?>
 <script>
@@ -28,8 +28,7 @@ function rah_add_ga() {
 </script>
 	<?php
 }
-
-add_action( 'interface_after_loop_content', 'rah_interface_next_previous', 5 );
+add_action( 'wp_head', 'rah_add_ga', 9999 );
 
 function rah_interface_next_previous() {
 	if( is_archive() || is_home() || is_search() ) {
@@ -56,6 +55,8 @@ function rah_interface_next_previous() {
 		endif;
 	}
 }
+add_action( 'interface_after_loop_content', 'rah_interface_next_previous', 5 );
+
 
 function interface_header_title() {
 	global $post;
@@ -129,3 +130,10 @@ function rah_interface_comment( $comment, $args, $depth ) {
   <!-- #comment-## -->
   <?php
 }
+
+function rah_interface_footer() {
+	$output = '<div class="copyright">'.__( 'Copyright &copy;', 'interface' ).' '.interface_the_year().' ' .interface_site_link().' | Site Development by <a href="https://kungfugrep.com/?utm_campaign=credit&utm_source=hrb&utm_medium=footer-link">Chris Klosowski</a> & <a href="https://filament-studios.com/?utm_campaign=credit&utm_source=hrb&utm_medium=footer-link">Filament Studios</a></div>';
+	echo $output;
+}
+add_action( 'interface_footer', 'rah_interface_footer', 30 );
+
