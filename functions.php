@@ -11,6 +11,7 @@ add_action( 'wp_enqueue_scripts', 'rah_enqueue_scripts', 99 );
 function rah_remove_actions() {
 	remove_action( 'interface_footer', 'interface_footer_info', 30 );
 	remove_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
+	remove_action( 'interface_searchform', 'interface_display_searchform', 10 );
 }
 add_action( 'init', 'rah_remove_actions', 99 );
 
@@ -136,4 +137,19 @@ function rah_interface_footer() {
 	echo $output;
 }
 add_action( 'interface_footer', 'rah_interface_footer', 30 );
+
+function rah_search_form() {
+?>
+<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="searchform clearfix">
+	<label class="assistive-text">
+		<?php _e( 'Search Hosts', 'interface' ); ?>
+	</label>
+	<input type="search" placeholder="<?php esc_attr_e( 'Search Hosts', 'interface' ); ?>" class="s field" name="s">
+	<input type="hidden" name="post_type" value="hosts" />
+	<input type="submit" value="<?php esc_attr_e( 'Search', 'interface' ); ?>" class="search-submit">
+	</form>
+	<!-- .search-form -->
+	<?php
+}
+add_action( 'interface_searchform', 'rah_search_form', 10 );
 
