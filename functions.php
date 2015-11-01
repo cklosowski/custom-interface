@@ -144,7 +144,13 @@ function rah_search_form() {
 	<label class="assistive-text">
 		<?php _e( 'Search Hosts', 'interface' ); ?>
 	</label>
-	<input type="search" placeholder="<?php esc_attr_e( 'Search Hosts', 'interface' ); ?>" class="s field" name="s">
+	<?php
+	$value = '';
+	if ( isset( $_GET['s'] ) ) {
+		$value = esc_attr( $_GET['s'] );
+	}
+	?>
+	<input type="search" placeholder="<?php esc_attr_e( 'Search Hosts', 'interface' ); ?>" class="s field" name="s" value="<?php echo $value; ?>">
 	<input type="hidden" name="post_type" value="hosts" />
 	<input type="submit" value="<?php esc_attr_e( 'Search', 'interface' ); ?>" class="search-submit">
 	</form>
