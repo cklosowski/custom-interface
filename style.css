@@ -239,6 +239,12 @@
 	padding: 5px;
 }
 
+span.inactive {
+	font-size: .75em;
+	line-height: 1em;
+	color: #c9c9c9;
+}
+
 @media (max-width: 768px) {
 	.rating-loop-wrapper {
 		width: 100%;
