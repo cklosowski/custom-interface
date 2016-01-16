@@ -32,7 +32,7 @@
      * interface_theloop 10
        */
   global $post, $wp_query;
-    if ( ! isset( $wp_query->query_vars['new'] ) && ! isset( $wp_query->query_vars['submit'] ) && ! isset( $wp_query->query_vars['edit'] ) ) {
+    if ( ! isset( $wp_query->query_vars['new'] ) && ! isset( $wp_query->query_vars['save'] ) && ! isset( $wp_query->query_vars['edit'] ) ) {
 
     if( have_posts() ) {
       while( have_posts() ) {
@@ -132,8 +132,8 @@
            }
       } elseif( isset( $wp_query->query_vars['new'] ) ) {
         echo do_shortcode( '[host_review_form]' );
-      } elseif( isset( $wp_query->query_vars['submit'] ) ) {
-        echo do_shortcode( '[host_review_submit]' );
+      } elseif( isset( $wp_query->query_vars['save'] ) ) {
+        echo do_shortcode( '[host_review_save]' );
       } elseif( isset( $wp_query->query_vars['edit'] ) ) {
         echo do_shortcode( '[host_review_edit_form]' );
       }
