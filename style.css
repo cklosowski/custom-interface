@@ -131,12 +131,18 @@
 	border-bottom: 1px solid #EEE;
 }
 
-.widget-ratings-wrapper, .hosts-ratings-wrapper {
+.widget-ratings-wrapper {
 	margin-top: 10px;
 }
 
-.hosts-ratings-wrapper {
-	margin-left: 110px;
+.hosts-buys {
+	margin: 5px 3px;
+}
+
+.hosts-buys strong {
+	font-size: 1.25em;
+	display: block;
+	line-height: 1.5em;
 }
 
 .rah-form h3 {
@@ -164,6 +170,10 @@
 .user-widet-wraper ul li {
 	list-style-type: disc;
 	margin-left: 25px;
+}
+
+.entry-meta .by-author, .entry-meta .date, .entry-meta .comments {
+	margin-bottom: 0px;
 }
 
 .entry-meta .by-author span:before,
@@ -250,3 +260,12 @@ span.inactive {
 		width: 100%;
 	}
 }
+
+.host-buy-logo {
+	width: 100px;
+	display: inline-block;
+}
+
+.hosts-ratings-wrapper { float: left; }
+
+.entry-content { min-height: 100px; }

@@ -55,7 +55,7 @@ if( have_posts() ) {
 
 				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
 					<div class="archive-avatar">
-					  <?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
+						<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
 					</div>
 				</a>
 
@@ -71,6 +71,9 @@ if( have_posts() ) {
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>"><?php the_title();?></a>
 					</h1>
 
+				</header>
+
+				<div class="entry-content clearfix">
 					<div class="entry-meta clearfix">
 						<?php if ( ! empty( $location_string ) ) : ?>
 							<div class="location"><span class="dashicons dashicons-location-alt"></span><?php echo $location_string; ?></div>
@@ -97,21 +100,26 @@ if( have_posts() ) {
 							</div>
 							<?php unset( $parent ); ?>
 						<?php endif; ?>
-						<br />
 
-						<div class="hosts-ratings-wrapper">
-							<?php echo rah_generate_stars( get_post_meta( $post->ID, '_host_rating', true ) ); ?><br />
-							<?php printf( _n( '%d Review', '%d Reviews', $review_count, 'interface' ), $review_count ); ?>
+						<?php $host_buys = wp_get_post_terms( get_the_ID(), 'buys' ); ?>
+						<?php if ( ! empty( $host_buys ) ) : ?>
+						<div class="hosts-buys clearfix">
+							<strong>Runs Buys For</strong>
+							<?php foreach ( $host_buys as $buy ) : ?>
+								<?php $image = RAH_URL . 'assets/images/' . $buy->slug . '-logo.jpg'; ?>
+								<img class="host-buy-logo" src="<?php echo $image; ?>" />
+							<?php endforeach; ?>
 						</div>
+						<?php endif; ?>
 					</div>
-
-				</header>
-
-				<div class="entry-content clearfix">
 					<?php the_excerpt(); ?>
 				</div>
 
 				<footer class="entry-meta clearfix">
+					<div class="hosts-ratings-wrapper">
+						<?php echo rah_generate_stars( get_post_meta( $post->ID, '_host_rating', true ) ); ?>&nbsp;
+						<?php printf( _n( '%d Review', '%d Reviews', $review_count, 'interface' ), $review_count ); ?>
+					</div>
 					<?php echo '<a class="readmore" href="' . get_permalink() . 'new" title="'.the_title( '', '', false ).'">'.__( 'Rate Host', 'interface' ).'</a>'; ?>
 				</footer>
 
