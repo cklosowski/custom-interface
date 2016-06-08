@@ -120,7 +120,7 @@ if( have_posts() ) {
 						<?php echo rah_generate_stars( get_post_meta( $post->ID, '_host_rating', true ) ); ?>&nbsp;
 						<?php printf( _n( '%d Review', '%d Reviews', $review_count, 'interface' ), $review_count ); ?>
 					</div>
-					<?php echo '<a class="readmore" href="' . get_permalink() . 'new" title="'.the_title( '', '', false ).'">'.__( 'Rate Host', 'interface' ).'</a>'; ?>
+					<?php echo '<a class="readmore" href="' . get_permalink() . 'new" title="'.strip_tags(the_title( '', '', false )).'">'.__( 'Rate Host', 'interface' ).'</a>'; ?>
 				</footer>
 
 			</article>
